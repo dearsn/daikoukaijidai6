@@ -3,9 +3,12 @@ import * as YAML from 'yaml';
 import { Airtable } from './airtable';
 import { Record } from './architecture/record';
 
-const config = YAML.parse(fs.readFileSync('./config.yaml', 'utf8'));
+const config = YAML.parse(fs.readFileSync('./config/products-config.yaml', 'utf8'));
 config['product-groups'].forEach(groupName => {
-  Airtable.getGroupQuery(groupName)
+  Airtable.base('base-products')(groupName)
+    .select({
+      maxRecords: 999,
+    })
     .all()
     .then(records => {
       const dump = records.reduce((acc: Record[], record) => {

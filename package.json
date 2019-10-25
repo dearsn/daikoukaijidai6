@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node index.ts",
-    "dump-airtable": "ts-node dump-airtable.ts",
-    "dump-csv": "ts-node dump-csv.ts"
+    "dump-products": "ts-node dump-products.ts",
+    "dump-csv": "ts-node dump-csv.ts",
+    "dump-crews": "ts-node dump-crews.ts"
   },
   "author": "Avin Shum",
   "license": "MIT",
